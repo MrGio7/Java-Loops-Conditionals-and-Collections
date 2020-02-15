@@ -22,11 +22,22 @@ public class Main {
         System.out.println("\n*** ArrayList ***");
         ArrayList<Cats> catsArrayList = new ArrayList<Cats>();
         catsArrayList.addAll(Arrays.asList(catArr));
-        catsArrayList.add(new Cats("fury", 13, 9));
+        catsArrayList.add(new Cats("Fury", 13, 9));
 
-        //For Loop ArrayList
+        //For Each Loop ArrayList
         for (Cats c : catsArrayList) {
             System.out.println(c);
+        };
+
+        System.out.println();
+
+        //Loop through List
+        for (Cats c : catsArrayList) {
+            if (c.getAvgWeight() >= 12) {
+                System.out.println(c.getBreed() + " are big");
+            } else {
+                System.out.println(c.getBreed() + " are small");
+            }
         }
 
         System.out.println("\n*** HashMaps ***");
