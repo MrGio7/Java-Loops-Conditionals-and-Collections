@@ -42,6 +42,6 @@ public class Cats {
 
     @Override
     public String toString() {
-        return "Cats" + "\n" + "breed: " + breed + '\n' + "avgWeight: " + avgWeight + "\n" + "age: " + age;
+        return "Cat{" + "breed: " + breed +  ", avgWeight: " + avgWeight +  ", age: " + age + "}";
     }
 }
