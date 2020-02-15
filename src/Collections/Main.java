@@ -20,14 +20,22 @@ public class Main {
 
 
         System.out.println("\n*** ArrayList ***");
+
+        //add and set elements to arrayList
         ArrayList<Cats> catsArrayList = new ArrayList<Cats>();
         catsArrayList.addAll(Arrays.asList(catArr));
         catsArrayList.add(new Cats("Fury", 13, 9));
+        catsArrayList.add(2, new Cats("Grek", 20, 6));
+
+        catsArrayList.set(2, new Cats("greky", 21, 7));
 
         //For Each Loop ArrayList
         for (Cats c : catsArrayList) {
             System.out.println(c);
         };
+
+        System.out.println("\nArrayList size: " + catsArrayList.size());
+
 
         System.out.println();
 
