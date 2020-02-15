@@ -2,6 +2,9 @@ package Collections;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -49,6 +52,52 @@ public class Main {
         }
 
         System.out.println("\n*** HashMaps ***");
+        
+        //Creating HashMap
+        HashMap<Integer, Cats> catsHashMap = new HashMap<Integer, Cats>();
 
+        //Add some Data
+        int hashcount = 0;
+        for (Cats c : catsArrayList) {
+            catsHashMap.put(hashcount, c);
+            hashcount++;
+        }
+
+        //get element 2
+        System.out.println(catsHashMap.get(2));
+        //get size
+        System.out.println(catsHashMap.size());
+        //remove element 2
+        catsHashMap.remove(2);
+        //get element 2
+        System.out.println(catsHashMap.get(2));
+
+        //get all elements
+        for (Integer i : catsHashMap.keySet()) {
+            System.out.println("key: " + i + " value: " + catsHashMap.get(i));
+        }
+
+        System.out.println();
+
+        //Sort HashMap, first create arraylist from hashmap
+        ArrayList<HashMap.Entry<Integer, Cats>> sortedMap = new ArrayList<HashMap.Entry<Integer, Cats>>();
+
+        //add data to arraylist
+        sortedMap.addAll(catsHashMap.entrySet());
+
+        //now sort
+        Collections.sort(sortedMap, new Comparator<HashMap.Entry<Integer, Cats>>() {
+            public int compare(HashMap.Entry<Integer, Cats> o1, HashMap.Entry<Integer, Cats> o2) {
+                return o1.getValue().getBreed().compareToIgnoreCase(o2.getValue().getBreed());
+                // return o2.getValue().getAvgWeight() - o1.getValue().getAvgWeight();
+            }
+        });
+
+        //print sorted
+        for (HashMap.Entry<Integer, Cats> c : sortedMap) {
+            System.out.println("key: " + c.getKey() + " Value: " + c.getValue());
+        }
+
+        System.out.println();
     }
 }
